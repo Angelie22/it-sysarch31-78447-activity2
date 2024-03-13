@@ -1,43 +1,17 @@
-function Card(){
-    return(
-        <card>
-            <div className="card">
-                <img src="https://d2v0j9zp5u17nn.cloudfront.net/wp-content/uploads/2024/02/13140345/daa.jpg" alt="Trulli" width="150" height="150" ></img>
-                <h3>Baek Ha Rin</h3>
-                <p>baekHaRin@gmail.com</p>
-            </div>
+import React from 'react'; // Import React for JSX syntax
 
-            <div className="card">
-                <img src="https://6.soompi.io/wp-content/uploads/image/20240208122831_pyramid-game-4.jpg?s=900x600&e=t" alt="Trulli" width="150" height="150" ></img>
-                <h3>Sung Soo Ji</h3>
-                <p>sungSooJi@gmail.com</p>
-            </div>
-
-            <div className="card">
-                <img src="https://photos.hancinema.net/photos/photo1616045.jpg" alt="Trulli" width="150" height="150" ></img>
-                <h3>Myung Ja Eun</h3>
-                <p>myungJaEun@gmail.com</p>
-            </div>
-
-            <div className="card">
-                <img src="https://i.mydramalist.com/kAV8pm_7f.jpg" alt="Trulli" width="150" height="150" ></img>
-                <h3>Im Ye Rim</h3>
-                <p>imYeRim@gmail.com</p>
-            </div>
-
-            <div className="card">
-                <img src="https://asianwiki.com/images/8/85/Ha_Yul-Ri-1999-pt1.jpeg" alt="Trulli" width="150" height="150" ></img>
-                <h3>Bang Woo Yi</h3>
-                <p>bangWooYi@gmail.com</p>
-            </div>
-
-            <div className="card">
-                <img src="https://i.mydramalist.com/XdAVkn_5c.jpg" alt="Trulli" width="150" height="150" ></img>
-                <h3>Kim Da Yun</h3>
-                <p>kimDaYun@gmail.com</p>
-            </div>
-
-        </card>
-    );
+function Card({ data }) { // Accept data prop for flexibility
+  return (
+    <div className="card-container"> {/* Wrap cards in a container */}
+      {data.map((item) => ( // Use map() to iterate over data array
+        <div className="card" key={item.id}> {/* Add unique key for each card */}
+          <img src={item.image} alt={item.name} width="150" height="150" />
+          <h3>{item.name}</h3>
+          <p>{item.email}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
-export default Card
+
+export default Card;
